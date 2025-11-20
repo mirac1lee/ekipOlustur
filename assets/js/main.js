@@ -182,7 +182,6 @@ function saveToLocalStorage() {
 
 saveBtn.addEventListener("click", () => {
     saveToLocalStorage();
-    alert("Tüm veriler manuel olarak kaydedildi.");
 });
 
 function exportJson() {
