@@ -29,21 +29,22 @@ body {
     transition: all 0.3s;
     z-index: 1000;
 }
-
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
 .theme-btn:hover {
     background-color: #f0f0f0;
     transform: scale(1.1);
 }
-
 body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
 }
-
 body.dark-mode .container {
     background-color: #121212;
 }
-
 body.dark-mode .panel, 
 body.dark-mode .modal-content,
 body.dark-mode .team-card { 
@@ -52,8 +53,6 @@ body.dark-mode .team-card {
     color: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.5);
 }
-
-
 body.dark-mode input, 
 body.dark-mode textarea, 
 body.dark-mode select {
@@ -61,34 +60,27 @@ body.dark-mode select {
     border: 1px solid #444;
     color: #fff;
 }
-
-
 body.dark-mode .chip {
     background-color: #333;
     border: 1px solid #444;
     color: #fff;
 }
-
 body.dark-mode .btn.ghost {
     color: #1a1919;
     border-color: #fff;
 }
-
 body.dark-mode .theme-btn {
     border-color: #444;
     color: #fff;
 }
-
 body.dark-mode .theme-btn:hover {
     background-color: #333;
 }
-
 body.dark-mode .leaderboard-item,
 body.dark-mode .team-card li {
     border-bottom-color: #333 !important;
     color: #fff;
 }
-
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
     color: #fff;
 }
