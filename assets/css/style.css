@@ -138,6 +138,12 @@ select {
     border: 1px solid var(--accent);
     cursor: pointer;
 }
+.clear {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+}
 .btn .ghost {
     background: transparent;
 }
@@ -242,17 +248,9 @@ select {
     margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
-    .row {
-        flex-direction: row;
-        align-items: center;
-    }
-    .controls-row {
-        flex-direction: row;
-        align-items: center;
-    }
-    .people-list {
-        flex-direction: row;
-    }
+@media(max-width: 600px) {
+.popupContent {
+flex-direction: column;
+text-align: center;
 }
-
+}
