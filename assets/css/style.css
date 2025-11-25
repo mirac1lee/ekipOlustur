@@ -58,6 +58,12 @@ select {
     border: 1px solid var(--accent);
     cursor: pointer;
 }
+.clear {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+}
 .btn .ghost {
     background: transparent;
 }
@@ -175,12 +181,12 @@ color: rgb(78, 205, 196);
 border-bottom: 1px solid rgb(78, 205, 196);
 }
 
-.team {
+.teams {
 padding-left: 0;
 margin-top: 10px;
 }
 
-.team li {
+.teams li {
 list-style: none;
 background: #fff;
 padding: 6px 10px;

@@ -202,17 +202,18 @@ exportBtn.addEventListener("click", exportJson);
 render();
 if(teams.length > 0) renderTeams();
 
+
 //////////----OZAN YAZICIOĞLU POP-UP-------///////
 
 
 const popup = document.querySelector(".popupOverlay");
-const teamListUI = document.querySelector(".team");
+const teamListUI = document.querySelector(".teams");
 const closeBtn = document.querySelector(".closeBtn");
 
 const shuffleBtn = document.querySelector("#shuffleBtn");
 
 
-shuffleBtn?.addEventListener("click", (e) => {
+shuffleBtn.addEventListener("click", (e) => {
 e.preventDefault();
 
 
@@ -226,12 +227,12 @@ popup?.classList.add("active");
 });
 
 
-closeBtn?.addEventListener("click", () => {
+closeBtn.addEventListener("click", () => {
 popup?.classList.remove("active");
 });
 
 
-popup?.addEventListener("click", (e) => {
+popup.addEventListener("click", (e) => {
 if (e.target === popup) popup?.classList.remove("active");
 });
 
