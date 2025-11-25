@@ -12,6 +12,86 @@ body {
     color: #0f172a;
     line-height: 1.4;
 }
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid #ddd;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.theme-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .container {
+    background-color: #121212;
+}
+
+body.dark-mode .panel, 
+body.dark-mode .modal-content,
+body.dark-mode .team-card { 
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+
+body.dark-mode input, 
+body.dark-mode textarea, 
+body.dark-mode select {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+
+body.dark-mode .chip {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+body.dark-mode .btn.ghost {
+    color: #1a1919;
+    border-color: #fff;
+}
+
+body.dark-mode .theme-btn {
+    border-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background-color: #333;
+}
+
+body.dark-mode .leaderboard-item,
+body.dark-mode .team-card li {
+    border-bottom-color: #333 !important;
+    color: #fff;
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: #fff;
+}
 input {
     border-radius: 10px;
     padding: 6px;
@@ -91,8 +171,78 @@ select {
     font-weight: bold;
     color: #333;
 }
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5);
+}
+#leaderboardBtn {
+    border:none;
+    border-radius: 15px;
+    background-color: #98c1fb;
+    margin-bottom: 20px;
+}
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+#leaderboardList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: small;
+}
+.modal-content h2 {
+    font-size: medium;
+    margin-bottom: 10px;
+}
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1em;
+    color: #333;
+}
+.high-scores-mode .leaderboard-item:nth-child(1) { color: #D4AF37; font-weight: bold; }
+.high-scores-mode .leaderboard-item:nth-child(2) { color: #C0C0C0; font-weight: bold; }
+.high-scores-mode .leaderboard-item:nth-child(3) { color: #CD7F32; font-weight: bold; } 
+#toggleSortBtn {
+    border: none;
+    border-radius: 15px;
+    background-color: #bcdffcff;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .row {
         flex-direction: row;
         align-items: center;

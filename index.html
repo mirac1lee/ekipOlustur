@@ -13,66 +13,78 @@
 </head>
 <body>
     <main class="container">
+        <button id="themeToggle" class="theme-btn">🌙</button>
+        <button id="leaderboardBtn">🏆 Sıralama</button>
+        <div id="leaderboardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Puan Sıralaması</h2>
+            <button id="toggleSortBtn">
+            🔽 En Yüksekten Düşüğe
+            </button>
+            <ul id="leaderboardList">
+                </ul>
+        </div>
+        </div>
         <header>
-        <h1>Team Builder</h1>
-        <p class="lead">
-            Kişi ekleyip ekipler oluşturabileceğiniz basit bir araç.
-        </p>
-    </header>
-    <section class="panel">
-        <form id="addUserForm" class="controls-row">
-            <input 
-            type="text" 
-            id="personInput" 
-            class="input" 
-            name="username"
-            placeholder="kişi adı gir(enter ile ekle)"
-            />
-            <button type="submit" id="addPersonBtn" class="btn">Ekle</button>
-            <button type="button" id="bulkAddBtn" class="btn ghost">Toplu Ekle</button>
-        </form>
-        <div class="row">
-            <textarea id="bulkArea" class="text area hidden" placeholder="isimleri satır satır ekleyin(ctrl / cmd + enter ile ekle)">
-            </textarea>
-        </div>
-        <div class="row">
-            <label class="label">Kişiler:</label>
-            <div id="people" class="people-list">
-                <div class="chip"></div>
+            <h1>Team Builder</h1>
+            <p class="lead">
+                Kişi ekleyip ekipler oluşturabileceğiniz basit bir araç.
+            </p>
+        </header>
+        <section class="panel">
+            <form id="addUserForm" class="controls-row">
+                <input 
+                type="text" 
+                id="personInput" 
+                class="input" 
+                name="username"
+                placeholder="kişi adı gir(enter ile ekle)"
+                />
+                <button type="submit" id="addPersonBtn" class="btn">Ekle</button>
+                <button type="button" id="bulkAddBtn" class="btn ghost">Toplu Ekle</button>
+            </form>
+            <div class="row">
+                <textarea id="bulkArea" class="text area hidden" placeholder="isimleri satır satır ekleyin(ctrl / cmd + enter ile ekle)">
+                </textarea>
             </div>
-        </div>
-        <form id="distributeForm" class="row-controls">
-            <label for="modeSelect">Dağıtıma Modu</label>
-            <select name="mode" id="modeSelect" class="select">
-                <option value="teams">Ekip Sayısına Göre</option>
-                <option value="size">Ekip Büyüklüğüne Göre</option>
-            </select>
+            <div class="row">
+                <label class="label">Kişiler:</label>
+                <div id="people" class="people-list">
+                    <div class="chip"></div>
+                </div>
+            </div>
+            <form id="distributeForm" class="row-controls">
+                <label for="modeSelect">Dağıtıma Modu</label>
+                <select name="mode" id="modeSelect" class="select">
+                    <option value="teams">Ekip Sayısına Göre</option>
+                    <option value="size">Ekip Büyüklüğüne Göre</option>
+                </select>
 
-            <input 
-            type="number"
-            name="quantity"
-            id="numberInput"
-            class="small-number"
-            min="1"
-            value="2"
-            />
-            <div class="btn-group">
-                <button id="shuffleBtn" class="btn">Rasgele Dağıt</button>
-                <button type="button" id="saveBtn" class="btn">Kaydet</button>
-                <button type="button" id="exportBtn" class="btn">JSON olarak dışa aktar</button>
-            </div>
-        </form>
-    </section>
-    <section class="panel">
-        <h2>Ekipler</h2>
-        <div id="teamsContainer" class="teams"></div>
-    </section>
-    
-    <footer class="foot">
-        <small>Kişi Ekle -> Mod Seç -> Sayı Gir -> 
-            <strong>Rastgele Dağıt</strong>
-        </small>
-    </footer>
+                <input 
+                type="number"
+                name="quantity"
+                id="numberInput"
+                class="small-number"
+                min="1"
+                value="2"
+                />
+                <div class="btn-group">
+                    <button id="shuffleBtn" class="btn">Rasgele Dağıt</button>
+                    <button type="button" id="saveBtn" class="btn">Kaydet</button>
+                    <button type="button" id="exportBtn" class="btn">JSON olarak dışa aktar</button>
+                </div>
+            </form>
+        </section>
+        <section class="panel">
+            <h2>Ekipler</h2>
+            <div id="teamsContainer" class="teams"></div>
+        </section>
+        <footer class="foot">
+            <small>Kişi Ekle -> Mod Seç -> Sayı Gir -> 
+                <strong>Rastgele Dağıt</strong>
+            </small>
+        </footer>
     </main>
 </body>
 </html>

@@ -4,6 +4,13 @@ const saveBtn = document.querySelector("#saveBtn");
 const exportBtn = document.querySelector("#exportBtn");
 const distributeForm = document.querySelector("#distributeForm");
 const teamContainer = document.querySelector("#teamsContainer");
+const leaderboardBtn = document.querySelector("#leaderboardBtn");
+const modal = document.querySelector("#leaderboardModal");
+const closeModalSpan = document.querySelector(".close-modal");
+const leaderboardList = document.querySelector("#leaderboardList");
+const toggleSortBtn = document.querySelector("#toggleSortBtn");
+const themeToggleBtn = document.querySelector("#themeToggle");
+const bodyElement = document.body;
 
 let users = localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")).users : [];
 let teams = localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")).teams : [];
@@ -76,6 +83,69 @@ function render() {
     });
 }
 
+let isDescending = true; 
+
+function showLeaderboard() {
+    const sortedUsers = [...users].sort((a, b) => {
+        if (isDescending) {
+            return b.score - a.score; 
+        } else {
+            return a.score - b.score;
+        }
+    });
+
+    leaderboardList.innerHTML = "";
+
+    if (isDescending) {
+        leaderboardList.classList.add("high-scores-mode");
+    } else {
+        leaderboardList.classList.remove("high-scores-mode");
+    }
+
+    toggleSortBtn.innerHTML = isDescending 
+        ? "🔽 En Yüksekten Düşüğe" 
+        : "🔼 En Düşükten Yükseğe";
+    
+    toggleSortBtn.style.backgroundColor = isDescending ? "#bcdffcff" : "#f9ebfbff";
+
+    if (sortedUsers.length === 0) {
+        leaderboardList.innerHTML = "<li style='text-align:center; color:#888;'>Listede kimse yok.</li>";
+    } else {
+        sortedUsers.forEach((user, index) => {
+            const li = document.createElement("li");
+            li.className = "leaderboard-item";
+            
+            let rankLabel = `${index + 1})`;
+            
+            if (isDescending) {
+                if (index === 0) rankLabel = "🥇";
+                if (index === 1) rankLabel = "🥈";
+                if (index === 2) rankLabel = "🥉";
+            }
+
+            li.innerHTML = `
+                <span>${rankLabel} ${user.name}</span>
+                <span>${user.score} Puan</span>
+            `;
+            leaderboardList.appendChild(li);
+        });
+    }
+
+    modal.style.display = "block";
+}
+
+leaderboardBtn.addEventListener("click", () => {
+    
+    showLeaderboard();
+});
+
+toggleSortBtn.addEventListener("click", () => {
+    isDescending = !isDescending;
+    showLeaderboard();
+});
+
+closeModalSpan.addEventListener("click", () => { modal.style.display = "none"; });
+window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 
 addUserForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -175,6 +245,28 @@ function renderTeams() {
     teamContainer.appendChild(ul);
 }
 
+
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark') {
+    bodyElement.classList.add('dark-mode');
+    themeToggleBtn.textContent = '☀️';
+}
+
+
+themeToggleBtn.addEventListener('click', () => {
+
+    bodyElement.classList.toggle('dark-mode');
+    
+    
+    const isDark = bodyElement.classList.contains('dark-mode');
+
+    
+    themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
+
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 
 function saveToLocalStorage() {
     localStorage.setItem("data", JSON.stringify({ users, teams }));
