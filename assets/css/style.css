@@ -92,6 +92,169 @@ select {
     color: #333;
 }
 
+
+/*------OZAN YAZICIOĞLU POP-UP CSS*/
+
+.popupOverlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,.6);
+display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+pointer-events: none;
+transition: .25s ease;
+}
+
+.popupOverlay.active {
+opacity: 1;
+pointer-events: auto;
+}
+
+
+.popupBox {
+background: #fff;
+padding: 1.5rem;
+border-radius: 16px;
+max-width: 750px;
+width: 90%;
+position: relative;
+}
+
+
+.closeBtn {
+position: absolute;
+top: 12px;
+right: 12px;
+border: none;
+background: rgb(76, 205, 196);
+color: #fff;
+border-radius: 50%;
+width: 32px;
+height: 32px;
+cursor: pointer;
+font-size: 20px;
+}
+
+
+.popupContent {
+display: flex;
+gap: 2rem;
+}
+
+
+.leftSide {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.leftSide img {
+width: 260px;
+max-width: 100%;
+}
+
+
+.title {
+font-size: 28px;
+color: rgb(78, 205, 196);
+margin-bottom: 1rem;
+}
+
+
+.rightSide {
+flex: 1;
+}
+
+.teamTitle {
+display: inline-block;
+font-size: 20px;
+padding-bottom: 5px;
+color: rgb(78, 205, 196);
+border-bottom: 1px solid rgb(78, 205, 196);
+}
+
+.team {
+padding-left: 0;
+margin-top: 10px;
+}
+
+.team li {
+list-style: none;
+background: #fff;
+padding: 6px 10px;
+border-radius: 6px;
+margin-top: 6px;
+}
+
+
+@media(max-width: 600px) {
+.popupContent {
+flex-direction: column;
+text-align: center;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 1024px) {
     .row {
         flex-direction: row;
