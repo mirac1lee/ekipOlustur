@@ -109,7 +109,6 @@ select {
 .row {
     display: flex;
     gap: 10px;
-    align-items: center;
     margin-bottom: 10px;
     flex-wrap: wrap;
 }
@@ -156,7 +155,13 @@ select {
     gap: 8px ;
     background-color: #ccd9eb;
 }
+.label {
+    font-weight: 600;
+    margin-top: 20px;
+    padding-left: 20px;
+}
 .people-list {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -243,9 +248,13 @@ select {
     margin-bottom: 20px;
 }
 
-@media(max-width: 600px) {
-.popupContent {
-flex-direction: column;
-text-align: center;
-}
+@media(min-width: 768px) {
+    .container {
+    flex-direction: column;
+    text-align: center;
+    }
+    .label {
+    font-weight: 600;
+    margin-left: 100px;
+    }
 }
